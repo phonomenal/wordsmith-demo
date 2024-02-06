@@ -1,6 +1,6 @@
 # Wordsmith App
 
-Wordsmith is the demo project originally shown at DockerCon EU 2017 and 2018.
+Wordsmith is the demo project originally shown at DockerCon EU.
 
 The demo app runs across three containers:
 
@@ -58,4 +58,11 @@ api-858f6678-7bqbv     1/1       Running   0          1m
 api-858f6678-fjdws     1/1       Running   0          1m
 api-858f6678-rrr8c     1/1       Running   0          1m
 api-858f6678-x9zqh     1/1       Running   0          1m
+```
+Kubectl port-forward allows you to access and interact with internal Kubernetes cluster processes from your localhost. You can use this method to investigate issues and adjust your services locally without the need to expose them beforehand.
+
+It will expose the port temporary while the script is running and performs load balancing. Accessible as localhost:8080.
+
+```code
+kubectl port-forward svc/web 8080:8080
 ```
