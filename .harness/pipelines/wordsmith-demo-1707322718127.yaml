@@ -43,6 +43,8 @@ pipeline:
                   name: RunTests_1
                   identifier: RunTests_1
                   spec:
+                    connectorRef: jameslehadockerregistry
+                    image: maven
                     language: Java
                     buildTool: Maven
                     args: test -f api
