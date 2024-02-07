@@ -43,17 +43,21 @@ pipeline:
                   name: RunTests_1
                   identifier: RunTests_1
                   spec:
+                    connectorRef: jameslehadockerregistry
+                    image: maven
                     language: Java
                     buildTool: Maven
-                    args: test
+                    args: test -Dtest=JUnit5TestCases
                     packages: io.harness
                     runOnlySelectedTests: true
+                    preCommand: cd api
                     postCommand: mvn package -DskipTests
                     reports:
                       type: JUnit
                       spec:
                         paths:
                           - target/surefire-reports/*.xml
+                    enableTestSplitting: false
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
