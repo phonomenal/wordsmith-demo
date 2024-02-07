@@ -33,7 +33,7 @@ pipeline:
                   identifier: build
                   spec:
                     connectorRef: jameslehadockerregistry
-                    image: mvn
+                    image: maven
                     shell: Sh
                     command: |
                       mvn -version
