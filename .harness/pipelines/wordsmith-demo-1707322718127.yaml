@@ -47,7 +47,7 @@ pipeline:
                     image: maven
                     language: Java
                     buildTool: Maven
-                    args: test
+                    args: test -Dtest=JUnit5TestCases
                     packages: io.harness
                     runOnlySelectedTests: true
                     preCommand: cd api
@@ -67,4 +67,3 @@ pipeline:
                     repo: jamesleha/wordsmith-app
                     tags:
                       - <+pipeline.sequenceId>
-                    preCommand: cd api
