@@ -54,3 +54,4 @@ pipeline:
                     tags:
                       - <+pipeline.sequenceId>
                     dockerfile: api/Dockerfile
+                    context: api/
