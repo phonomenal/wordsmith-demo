@@ -35,9 +35,10 @@ pipeline:
                     connectorRef: jameslehadockerregistry
                     image: maven
                     shell: Sh
-                    command: |
+                    command: |-
                       mvn -version
                       mvn clean package dependency:copy-dependencies -f api/pom.xml 
+                      mvn test -Dtest=JUnit5TestCases
               - step:
                   type: RunTests
                   name: RunTests_1
