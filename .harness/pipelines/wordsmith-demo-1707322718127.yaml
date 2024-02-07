@@ -33,6 +33,7 @@ pipeline:
                   identifier: build
                   spec:
                     shell: Sh
+                    image: maven:3.9-jdk-21
                     command: |
                       mvn -version
                       mvn clean package dependency:copy-dependencies -f api/pom.xml 
