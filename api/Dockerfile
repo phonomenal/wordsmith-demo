@@ -1,5 +1,6 @@
 # Build stage
-FROM --platform=${BUILDPLATFORM} maven:3-amazoncorretto-20 as build
+# FROM --platform=${BUILDPLATFORM} maven:3-amazoncorretto-20 as build
+FROM maven:3-amazoncorretto-20 as build
 WORKDIR /usr/local/app
 COPY pom.xml .
 RUN mvn verify -DskipTests --fail-never
