@@ -49,7 +49,7 @@ pipeline:
                   name: BuildAndPushDockerRegistry_1
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
-                    connectorRef: jameslehadockerregistry
+                    connectorRef: account.jamesdockerhub
                     repo: jamesleha/wordsmith-app
                     tags:
                       - <+pipeline.sequenceId>
