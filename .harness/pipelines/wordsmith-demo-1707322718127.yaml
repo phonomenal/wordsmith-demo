@@ -29,35 +29,21 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: build
+                  name: build-and-test
                   identifier: build
                   spec:
                     connectorRef: jameslehadockerregistry
                     image: maven
                     shell: Sh
-                    command: |
+                    command: |-
                       mvn -version
                       mvn clean package dependency:copy-dependencies -f api/pom.xml 
-              - step:
-                  type: RunTests
-                  name: RunTests_1
-                  identifier: RunTests_1
-                  spec:
-                    connectorRef: jameslehadockerregistry
-                    image: maven
-                    language: Java
-                    buildTool: Maven
-                    args: test -Dtest=JUnit5TestCases
-                    packages: io.harness
-                    runOnlySelectedTests: true
-                    preCommand: cd api
-                    postCommand: mvn package -DskipTests
+                      mvn test -Dtest=JUnit5TestCases -f api/pom.xml    
                     reports:
                       type: JUnit
                       spec:
                         paths:
                           - target/surefire-reports/*.xml
-                    enableTestSplitting: false
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
@@ -67,3 +53,4 @@ pipeline:
                     repo: jamesleha/wordsmith-app
                     tags:
                       - <+pipeline.sequenceId>
+                    dockerfile: api/Dockerfile
