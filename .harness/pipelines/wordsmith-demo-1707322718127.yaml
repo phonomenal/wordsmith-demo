@@ -53,4 +53,4 @@ pipeline:
                     repo: jamesleha/wordsmith-app
                     tags:
                       - <+pipeline.sequenceId>
-                    context: api/
+                    dockerfile: api/Dockerfile
