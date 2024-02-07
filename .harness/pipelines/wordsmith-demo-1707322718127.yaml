@@ -45,26 +45,6 @@ pipeline:
                         paths:
                           - target/surefire-reports/*.xml
               - step:
-                  type: RunTests
-                  name: RunTests_1
-                  identifier: RunTests_1
-                  spec:
-                    connectorRef: jameslehadockerregistry
-                    image: maven
-                    language: Java
-                    buildTool: Maven
-                    args: test
-                    packages: io.harness
-                    runOnlySelectedTests: false
-                    testAnnotations: JUnit5TestCases
-                    postCommand: mvn package -DskipTests
-                    reports:
-                      type: JUnit
-                      spec:
-                        paths:
-                          - target/surefire-reports/*.xml
-                    enableTestSplitting: false
-              - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
                   identifier: BuildAndPushDockerRegistry_1
@@ -73,3 +53,4 @@ pipeline:
                     repo: jamesleha/wordsmith-app
                     tags:
                       - <+pipeline.sequenceId>
+                    context: api/
