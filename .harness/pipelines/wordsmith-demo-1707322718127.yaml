@@ -47,9 +47,10 @@ pipeline:
                     image: maven
                     language: Java
                     buildTool: Maven
-                    args: test -f api
+                    args: test
                     packages: io.harness
                     runOnlySelectedTests: true
+                    preCommand: cd api
                     postCommand: mvn package -DskipTests
                     reports:
                       type: JUnit
