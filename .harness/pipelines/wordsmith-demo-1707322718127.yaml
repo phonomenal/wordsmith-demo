@@ -39,6 +39,11 @@ pipeline:
                       mvn -version
                       mvn clean package dependency:copy-dependencies -f api/pom.xml 
                       mvn test -Dtest=JUnit5TestCases -f api/pom.xml    
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths:
+                          - target/surefire-reports/*.xml
               - step:
                   type: RunTests
                   name: RunTests_1
