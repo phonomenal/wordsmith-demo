@@ -45,7 +45,7 @@ pipeline:
                   spec:
                     language: Java
                     buildTool: Maven
-                    args: test
+                    args: test -f api
                     packages: io.harness
                     runOnlySelectedTests: true
                     postCommand: mvn package -DskipTests
@@ -54,6 +54,7 @@ pipeline:
                       spec:
                         paths:
                           - target/surefire-reports/*.xml
+                    enableTestSplitting: false
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
