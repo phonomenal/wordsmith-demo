@@ -1,6 +1,6 @@
 # Wordsmith App
 
-Wordsmith is the demo project originally shown at DockerCon EU.
+Wordsmith is the demo project by Docker Samples: https://github.com/dockersamples/wordsmith
 
 The demo app runs across three containers:
 
