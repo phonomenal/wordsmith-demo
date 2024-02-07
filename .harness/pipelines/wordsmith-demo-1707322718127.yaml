@@ -29,7 +29,7 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: build
+                  name: build-and-test
                   identifier: build
                   spec:
                     connectorRef: jameslehadockerregistry
@@ -48,10 +48,10 @@ pipeline:
                     image: maven
                     language: Java
                     buildTool: Maven
-                    args: test -Dtest=JUnit5TestCases
+                    args: test
                     packages: io.harness
-                    runOnlySelectedTests: true
-                    preCommand: cd api
+                    runOnlySelectedTests: false
+                    testAnnotations: JUnit5TestCases
                     postCommand: mvn package -DskipTests
                     reports:
                       type: JUnit
