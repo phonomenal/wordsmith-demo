@@ -34,8 +34,7 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |
-                      mvn clean package dependency:copy-dependencies
-                      mvn -B package --file api/pom.xml
+                      mvn clean package dependency:copy-dependencies -f api/pom.xml 
               - step:
                   type: RunTests
                   name: RunTests_1
