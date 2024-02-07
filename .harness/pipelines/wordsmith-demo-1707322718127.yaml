@@ -67,4 +67,4 @@ pipeline:
                     repo: jamesleha/wordsmith-app
                     tags:
                       - <+pipeline.sequenceId>
-                    target: api/
+                    preCommand: cd api
