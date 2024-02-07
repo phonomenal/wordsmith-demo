@@ -8,7 +8,8 @@ COPY src ./src
 RUN mvn verify
 
 # Run stage
-FROM --platform=${TARGETPLATFORM} amazoncorretto:20
+# FROM --platform=${TARGETPLATFORM} amazoncorretto:20
+FROM amazoncorretto:20
 WORKDIR /usr/local/app
 COPY --from=build /usr/local/app/target .
 ENTRYPOINT ["java", "-Xmx8m", "-Xms8m", "-jar", "/usr/local/app/words.jar"]
