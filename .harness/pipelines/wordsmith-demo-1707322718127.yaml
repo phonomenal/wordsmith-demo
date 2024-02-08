@@ -46,8 +46,8 @@ pipeline:
                           - target/surefire-reports/*.xml
               - step:
                   type: BuildAndPushDockerRegistry
-                  name: BuildAndPushDockerRegistry_1
-                  identifier: BuildAndPushDockerRegistry_1
+                  name: Build and push to Docker
+                  identifier: Build_and_push_to_Docker
                   spec:
                     connectorRef: dockerhubjames
                     repo: jamesleha/wordsmith-app
