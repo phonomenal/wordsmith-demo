@@ -33,6 +33,10 @@ pipeline:
                   template:
                     templateRef: Maven_Build_and_Test
                     versionLabel: v1
+                    templateInputs:
+                      type: Run
+                      spec:
+                        envVariables: {}
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and push to GHCR
