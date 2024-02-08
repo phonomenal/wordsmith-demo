@@ -49,7 +49,7 @@ pipeline:
                   name: Build and push to Docker
                   identifier: Build_and_push_to_Docker
                   spec:
-                    connectorRef: dockerhubjames
+                    connectorRef: githubcontainerregistry
                     repo: jamesleha/wordsmith-app
                     tags:
                       - <+pipeline.sequenceId>
