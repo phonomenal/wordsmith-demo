@@ -37,7 +37,7 @@ pipeline:
                       type: Run
                       spec:
                         envVariables:
-                          pomPath: <+input>
+                          pomPath: api/pom.xml
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and push to GHCR
