@@ -46,8 +46,8 @@ pipeline:
                           - target/surefire-reports/*.xml
               - step:
                   type: BuildAndPushDockerRegistry
-                  name: Build and push to Docker
-                  identifier: Build_and_push_to_Docker
+                  name: Build and push to GHCR
+                  identifier: Build_and_push_to_ghcr
                   spec:
                     connectorRef: githubcontainerregistry
                     repo: ghcr.io/phonomenal/wordsmith-demo
