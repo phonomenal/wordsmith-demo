@@ -28,22 +28,11 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: Run
                   name: build-and-test
                   identifier: build
-                  spec:
-                    connectorRef: jameslehadockerregistry
-                    image: maven
-                    shell: Sh
-                    command: |-
-                      mvn -version
-                      mvn clean package dependency:copy-dependencies -f api/pom.xml 
-                      mvn test -Dtest=JUnit5TestCases -f api/pom.xml    
-                    reports:
-                      type: JUnit
-                      spec:
-                        paths:
-                          - target/surefire-reports/*.xml
+                  template:
+                    templateRef: Maven_Build_and_Test
+                    versionLabel: v1
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and push to GHCR
