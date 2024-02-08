@@ -50,7 +50,7 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: dockerhubjames
-                    repo: jamesleha/wordsmith-app
+                    repo: jamesleha/ubuntu
                     tags:
                       - <+pipeline.sequenceId>
                     dockerfile: api/Dockerfile
