@@ -36,7 +36,8 @@ pipeline:
                     templateInputs:
                       type: Run
                       spec:
-                        envVariables: {}
+                        envVariables:
+                          pomPath: <+input>
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and push to GHCR
